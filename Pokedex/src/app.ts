@@ -1,4 +1,4 @@
-fetch('https://pokeapi.co/api/v2/Pikachu').then(res => {
+fetch('https://pokeapi.co/api/v2/1').then(res => {
   if(res.ok){
   console.log(res.json())
   }else{
