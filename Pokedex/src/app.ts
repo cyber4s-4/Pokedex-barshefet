@@ -24,7 +24,7 @@ const findPokemon = (pokemon: string) => {
 // findPokemon('pikachu');
 
 const loadPokemons = () =>{
-  for(let i = 0; i < 60; i++){
+  for(let i = 0; i < 61; i++){
 fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
 .then(res => res.json())
 .then(data => {

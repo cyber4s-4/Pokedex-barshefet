@@ -5,21 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>Pokedex</title>
     <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="headline" ><img src="https://raw.githubusercontent.com/sleduardo20/pokedex/0671af442dff1d8f7141e49eb83b438885bbc9e9/public/img/logo.svg" alt="Pokedex"></div>
-    <div class="pokemon-item">
+    <div class="headline">
+      <img
+        src="https://raw.githubusercontent.com/sleduardo20/pokedex/0671af442dff1d8f7141e49eb83b438885bbc9e9/public/img/logo.svg"
+        alt="Pokedex"
+      />
+    </div>
+    <div class="search-bar">
       <div>
-        <input type="text" placeholder="type Pokemon name here..." />
+        <input type="text" placeholder="Type Pokemon name here..." />
         <button>Search</button>
       </div>
-      
-        <img class="pokemon-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-         alt="Pikachu">
-      
+      <div id="search-status"></div>
+    </div>
+    <div id="poke-spotlight" class="pokemon-spotlight">
+      <img
+        class="pokemon-image"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+        alt="Pikachu"
+      />
+
       <div><h2>Name:</h2></div>
     </div>
   </body>
