@@ -1,6 +1,8 @@
 //TODO: implement findPokemon()
 
 const searchInput= document.getElementById('search-input') as HTMLInputElement
+const searchButton = document.getElementById('search-button')
+const searchStatus = document.getElementById('search-status')
 
 export const body = document.querySelector('body')
 export const pokeContainer = document.createElement('div')
@@ -15,16 +17,18 @@ const findPokemon = (pokemon: string) => {
     .then((res) => res.json())
     .then((data) => {
       if (data !== undefined) {
-        console.log(data.sprites);
+        console.log('its working');
       } 
     }).catch(error => {
       console.log(error)
-      console.log(`couldnt find ${pokemon}`)
+      searchStatus!.innerText = `Didn't find a pokemon named ${pokemon}`
     })
     
 };
 
-// findPokemon('pikachu');
+searchButton?.addEventListener('click', ()=>{
+  findPokemon(searchInput.value)
+})
 
 const loadPokemons = () =>{
   for(let i = 0; i < 61; i++){
@@ -42,4 +46,4 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
   }
 }
 
-window.addEventListener('load',loadPokemons)
+// window.addEventListener('load',loadPokemons)
