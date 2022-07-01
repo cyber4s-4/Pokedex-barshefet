@@ -1,3 +1,7 @@
+// *{
+//   font-family: 'Chakra Petch', sans-serif;
+// }
+
 body {
   background-color: rgb(195, 231, 255);
 }
@@ -6,6 +10,7 @@ body {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(5, 200px);
+  row-gap: 10px;
 }
 
 .pokemon-item {
@@ -13,16 +18,21 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px;
   box-shadow: 1px 5px 10px gray;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.766);
+  margin: 10px;
+  
   &:hover {
     transform: scale(1.1);
   }
-  .pokemon-image {
-    margin: 30px;
-    width: 200px;
+  img{
+    
+    width: 150px;
+  }
+  h2{
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 30px;
   }
 }
 .headline {
@@ -41,8 +51,8 @@ body {
   margin-top: 35px;
   margin-bottom: 10px;
   input {
-    width: 250px;
-    height: 35px;
+    width: 400px;
+    height: 40px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px gray;
     align-self: center;
@@ -67,16 +77,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
   .pokemon-spotlight {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.766);
-    width: 300px;
-    height: 400px;
+    width: 350px;
+    height: 450px;
     border-radius: 20px;
     outline: black solid 3px;
+    
     img {
       width: 200px;
     }
@@ -85,4 +97,8 @@ body {
 
 .hide{
   display: none;
+}
+
+.name{
+  font-family: 'Chakra Petch', sans-serif;
 }

@@ -22,9 +22,13 @@ export class pokeListComponent {
       const pokeImg = document.createElement('img')
       pokeImg.src = this.data.pokeImg
       pokemonItem.appendChild(pokeImg)
+      
+      const pokeHeight = document.createElement('p')
+      pokeHeight.innerText = `Height: ${this.data.height}`
+      pokemonItem.appendChild(pokeHeight)
 
       const pokeWeight = document.createElement('p')
-      pokeWeight.innerText = this.data.weight.toString()
+      pokeWeight.innerText = `Weight: ${this.data.weight}`
       pokemonItem.appendChild(pokeWeight)
 
 
