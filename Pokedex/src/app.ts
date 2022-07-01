@@ -20,19 +20,22 @@ const findPokemon = (pokemon: string) => {
     
 };
 
-findPokemon('pikachu');
+// findPokemon('pikachu');
 
 const loadPokemons = () =>{
-fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=60')
+  for(let i = 0; i < 60; i++){
+fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
 .then(res => res.json())
 .then(data => {
-  console.log(data)
-  let poke :characteristics[] = new characteristics(data.results[0].name,
-     data.results[0].sprites.front_default,
-     data.results[0].weight,
-     data.results[0].height)
+  let poke :characteristics = new characteristics(data.name,
+     data.sprites.front_default,
+     data.weight,
+     data.height)
+    
   new pokeListComponent(poke, pokeContainer).render()
-})
+  }
+)
+  }
 }
 
 window.addEventListener('load',loadPokemons)
