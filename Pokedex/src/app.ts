@@ -4,6 +4,13 @@ const searchInput= document.getElementById('search-input') as HTMLInputElement
 const searchButton = document.getElementById('search-button')
 const searchStatus = document.getElementById('search-status')
 
+const spotImg = document.getElementById('spot-img') as HTMLImageElement
+const spotName = document.getElementById('name') as HTMLDivElement
+const spotType = document.getElementById('type') as HTMLDivElement
+const spotWeight = document.getElementById('weight') as HTMLDivElement
+const spotHeight = document.getElementById('height') as HTMLDivElement
+const spotDiv = document.getElementById('poke-spotlight') as HTMLDivElement
+
 export const body = document.querySelector('body')
 export const pokeContainer = document.createElement('div')
 pokeContainer.className = 'container'
@@ -17,7 +24,14 @@ const findPokemon = (pokemon: string) => {
     .then((res) => res.json())
     .then((data) => {
       if (data !== undefined) {
-        console.log('its working');
+        console.log(data.types[0].type.name);
+        spotName.innerHTML = `<h2>Name: ${data.name}`
+        spotImg.src = data.sprites.front_default
+        spotType.innerHTML = `Type: ${data.types[0].type.name}`
+        spotWeight.innerHTML = `Weight: ${data.weight}`
+        spotHeight.innerHTML = `Height: ${data.height}`
+        spotDiv.className = 'pokemon-spotlight'
+
       } 
     }).catch(error => {
       console.log(error)
@@ -27,7 +41,10 @@ const findPokemon = (pokemon: string) => {
 };
 
 searchButton?.addEventListener('click', ()=>{
+  searchStatus!.innerHTML = ''
   findPokemon(searchInput.value)
+  
+
 })
 
 const loadPokemons = () =>{
@@ -46,4 +63,4 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
   }
 }
 
-// window.addEventListener('load',loadPokemons)
+window.addEventListener('load',loadPokemons)

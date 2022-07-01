@@ -23,24 +23,27 @@
         placeholder="Type Pokémon name here..."
       />
       <img
-      id="search-button"
+        id="search-button"
         class="search-button"
         src="https://www.freeiconspng.com/thumbs/pokeball-png/file-pokeball-png-0.png"
         alt="Search"
       />
       <div id="search-status"></div>
     </div>
-    <div id="poke-spotlight" class="pokemon-spotlight">
-      <img
-        class="pokemon-image"
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-        alt="Pikachu"
-      />
+    <div class="spotlight-container">
+      <div id="poke-spotlight" class="hide">
+        <img
+          id="spot-img"
+          class="pokemon-image"
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+          alt="Pikachu"
+        />
 
-      <div id="name"><h2>Name:</h2></div>
-      <div id="type">Type:</div>
-      <div id="weight">weight:</div>
-      <div id="height">Height:</div>
+        <div id="name"><h2>Name:</h2></div>
+        <div id="type">Type:</div>
+        <div id="weight">weight:</div>
+        <div id="height">Height:</div>
+      </div>
     </div>
   </body>
 </html>

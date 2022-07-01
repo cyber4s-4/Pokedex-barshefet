@@ -1,46 +1,46 @@
-body{
+body {
   background-color: rgb(195, 231, 255);
 }
 
-.container{
+.container {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(5, 200px);
 }
 
-.pokemon-item{
+.pokemon-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 10px;
-box-shadow: 1px 5px 10px gray;
-border-radius: 10px;
-background-color: rgba(255, 255, 255, 0.766);
-&:hover{
-  transform: scale(1.1);
+  box-shadow: 1px 5px 10px gray;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.766);
+  &:hover {
+    transform: scale(1.1);
+  }
+  .pokemon-image {
+    margin: 30px;
+    width: 200px;
+  }
 }
-.pokemon-image{
-  margin: 30px;
-  width: 200px;
-}
-}
-.headline{
+.headline {
   display: flex;
   justify-content: center;
   align-items: center;
-  img{
+  img {
     width: 400px;
   }
 }
 
-.search-bar{
+.search-bar {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 35px;
   margin-bottom: 10px;
-  input{
+  input {
     width: 250px;
     height: 35px;
     border-radius: 10px;
@@ -48,31 +48,41 @@ background-color: rgba(255, 255, 255, 0.766);
     align-self: center;
     text-align: center;
     font-size: 18px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     background-color: white;
   }
-  .search-button{
+  .search-button {
     width: 30px;
     margin-left: 5px;
-    &:hover{
+    &:hover {
       transform: scale(1.1);
     }
-    &:active{
+    &:active {
       transform: scale(1);
     }
   }
 }
 
-.pokemon-spotlight{
+.spotlight-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.766);
-  width: 300px;
-  height: 400px;
-
-  img{
-    width: 200px;
+  .pokemon-spotlight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.766);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    outline: black solid 3px;
+    img {
+      width: 200px;
+    }
   }
+}
+
+.hide{
+  display: none;
 }
