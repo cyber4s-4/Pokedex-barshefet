@@ -1,9 +1,12 @@
-//TODO: get html elements of displayed pokemon
-//and implement findPokemon()
+//TODO: implement findPokemon()
+
+const searchInput: HTMLElement | null = document.getElementById('search-input')
+console.log(searchInput.value)
 export const body = document.querySelector('body')
 export const pokeContainer = document.createElement('div')
 pokeContainer.className = 'container'
 body?.appendChild(pokeContainer);
+
 import { characteristics } from "./characteristics";
 import { pokeListComponent } from "./pokeList";
 
