@@ -1,9 +1,11 @@
-//TODO: implement findPokemon()
+//TODO: 
 
+//global veriables for the search
 const searchInput= document.getElementById('search-input') as HTMLInputElement
 const searchButton = document.getElementById('search-button')
 const searchStatus = document.getElementById('search-status')
 
+//global veriables for our pokemon spotlight
 const spotImg = document.getElementById('spot-img') as HTMLImageElement
 const spotName = document.getElementById('name') as HTMLDivElement
 const spotType = document.getElementById('type') as HTMLDivElement
@@ -19,6 +21,7 @@ body?.appendChild(pokeContainer);
 import { characteristics } from "./characteristics";
 import { pokeListComponent } from "./pokeList";
 
+//sends a request for searched pokemon. if return correctly puts the pokemon data in a 
 const findPokemon = (pokemon: string) => {
   fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
     .then((res) => res.json())
@@ -55,7 +58,8 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
   let poke :characteristics = new characteristics(data.name,
      data.sprites.front_default,
      data.weight,
-     data.height)
+     data.height,
+     data.types[0].type.name)
     
   new pokeListComponent(poke, pokeContainer).render()
   }
