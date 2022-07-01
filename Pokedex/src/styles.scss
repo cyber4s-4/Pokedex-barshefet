@@ -1,8 +1,13 @@
+.container{
+  display: grid;
+  grid-row: 400px;
+}
+
 .pokemon-item{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
   margin-top: 50px;
 .pokemon-image{
   margin: 30px;
@@ -10,7 +15,6 @@
 }
 }
 .headline{
-  
   display: flex;
   justify-content: center;
   align-items: center;
