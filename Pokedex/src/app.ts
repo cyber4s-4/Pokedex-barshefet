@@ -1,7 +1,7 @@
 //TODO: implement findPokemon()
 
-const searchInput: HTMLElement | null = document.getElementById('search-input')
-console.log(searchInput.value)
+const searchInput= document.getElementById('search-input') as HTMLInputElement
+
 export const body = document.querySelector('body')
 export const pokeContainer = document.createElement('div')
 pokeContainer.className = 'container'
