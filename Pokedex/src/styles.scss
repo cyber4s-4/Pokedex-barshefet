@@ -1,6 +1,4 @@
-// *{
-//   font-family: 'Chakra Petch', sans-serif;
-// }
+//TODO: search status needs a new design
 
 body {
   background-color: rgb(195, 231, 255);
@@ -22,16 +20,15 @@ body {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.766);
   margin: 10px;
-  
+
   &:hover {
     transform: scale(1.1);
   }
-  img{
-    
+  img {
     width: 150px;
   }
-  h2{
-    font-family: 'Chakra Petch', sans-serif;
+  h2 {
+    font-family: "Chakra Petch", sans-serif;
     font-size: 30px;
   }
 }
@@ -88,17 +85,29 @@ body {
     height: 450px;
     border-radius: 20px;
     outline: black solid 3px;
-    
+
+    .specs {
+      font-size: 18px;
+      font-weight: 500;
+      font-family: "Chakra Petch", sans-serif;
+    }
+
     img {
       width: 200px;
     }
   }
 }
 
-.hide{
+.hide {
   display: none;
 }
 
-.name{
-  font-family: 'Chakra Petch', sans-serif;
+.name {
+  font-family: "Chakra Petch", sans-serif;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Chakra Petch", sans-serif;
 }
