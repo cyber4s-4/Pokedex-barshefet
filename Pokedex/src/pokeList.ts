@@ -1,3 +1,4 @@
+//component for the loaded pokemons
 import { characteristics } from './characteristics';
 import { pokeContainer } from './app';
 

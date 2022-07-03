@@ -1,3 +1,4 @@
+//class for the pokemon characteristics
 export class characteristics{
   name: string;
   type: string;

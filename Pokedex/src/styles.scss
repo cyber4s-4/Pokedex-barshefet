@@ -1,5 +1,3 @@
-//TODO: search status needs a new design
-
 body {
   background-color: rgb(195, 231, 255);
 }
@@ -68,6 +66,7 @@ body {
       transform: scale(1);
     }
   }
+ 
 }
 
 .spotlight-container {
@@ -110,4 +109,13 @@ p {
   font-size: 18px;
   font-weight: 500;
   font-family: "Chakra Petch", sans-serif;
+}
+
+.search-status{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(242, 255, 64);
+  font-size: 20px;
+  text-shadow: 1px 1px 2px black;
 }
