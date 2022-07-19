@@ -5,7 +5,7 @@
     "lint": "eslint ./src --ext .ts",
     "jest": "jest",
     "lint-fix": "eslint ./src --ext .ts --fix",
-    "server": "nodemon ./src/server/app.js"
+    "server": "nodemon ./src/server/server.js"
   },
   "dependencies": {
     "@types/jest": "^28.1.1",

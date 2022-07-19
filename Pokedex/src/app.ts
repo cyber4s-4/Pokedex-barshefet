@@ -68,8 +68,6 @@ const loadPokemons = () => {
   }
 };
 
-fetch('http://localhost:4200/pokemon').then(res => res.text()).then(data => {console.log(data)})
-
 
 //runs at page load the loadPokemons program
 window.addEventListener('load', loadPokemons);
