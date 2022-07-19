@@ -20,6 +20,8 @@ body?.appendChild(pokeContainer);
 
 import { characteristics } from './characteristics';
 import { pokeListComponent } from './pokeList';
+import { getAllPokemons } from './database';
+
 
 // sends a request for searched pokemon. if return correctly puts the pokemon data in the spotlight
 const findPokemon = (pokemon: string) => {
@@ -27,7 +29,7 @@ const findPokemon = (pokemon: string) => {
     .then((res) => res.json())
     .then((data) => {
       if (data !== undefined) {
-        console.log(data.types[0].type.name);
+        
         spotName.innerHTML = `<h2>Name: ${data.name}`;
         spotImg.src = data.sprites.front_default;
         spotType.innerHTML = `Type: ${data.types[0].type.name}`;
@@ -47,12 +49,13 @@ const findPokemon = (pokemon: string) => {
 searchButton?.addEventListener('click', () => {
   searchStatus!.innerHTML = '';
   findPokemon(searchInput.value);
+  getAllPokemons(20)
 
 });
 
 //when the page loads the first 60 pokemons from the api are loaded by their data and th pokeList componnent
 const loadPokemons = () => {
-  for (let i = 0; i < 61; i++){
+  for (let i = 1; i < 61; i++){
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then(res => res.json())
       .then(data => {
