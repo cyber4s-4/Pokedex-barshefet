@@ -12,7 +12,7 @@ const spotWeight = document.getElementById('weight') as HTMLDivElement;
 const spotHeight = document.getElementById('height') as HTMLDivElement;
 const spotDiv = document.getElementById('poke-spotlight') as HTMLDivElement;
 
-//
+
 const body = document.querySelector('body');
 export const pokeContainer = document.createElement('div');
 pokeContainer.className = 'container';
@@ -20,7 +20,8 @@ body?.appendChild(pokeContainer);
 
 import { characteristics } from './characteristics';
 import { pokeListComponent } from './pokeList';
-import { getAllPokemons } from './database';
+import { Dman } from './data';
+
 
 
 // sends a request for searched pokemon. if return correctly puts the pokemon data in the spotlight
@@ -49,12 +50,13 @@ const findPokemon = (pokemon: string) => {
 searchButton?.addEventListener('click', () => {
   searchStatus!.innerHTML = '';
   findPokemon(searchInput.value);
-  getAllPokemons(20)
+  
 
 });
 
 //when the page loads the first 60 pokemons from the api are loaded by their data and th pokeList componnent
 const loadPokemons = () => {
+  Dman(5)
   for (let i = 1; i < 61; i++){
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then(res => res.json())

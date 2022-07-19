@@ -12,7 +12,7 @@ const root = path.join(process.cwd(), 'dist');
 
 app.use(express.static(root));
 
-app.get('*', (_req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(root, 'index.html'));
 });
 
@@ -24,7 +24,3 @@ app.get('/pokemon', (req, res)=>{
 app.listen(port, ()=>{
     console.log(`listening on port ${port}`)
 })
-
-
-
-
