@@ -1,7 +1,9 @@
 import { characteristics } from './characteristics';
+// const mongoClient = require('mongodb')
+// const uri = 'mongodb+srv://barshefet:ilovecode@cluster0.rxb57.mongodb.net/?retryWrites=true&w=majority'
 
-const mongoose = require('mongoose')
-
+// const client = new mongoClient(uri)
+// client.connect()
 
 export const getAllPokemons = (howMany: number) => {
     for (let i = 1; i < howMany; i++){
