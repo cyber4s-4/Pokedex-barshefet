@@ -1,39 +1,78 @@
-import { Say } from './shared/say.service';
-import { Dialog } from './shared/dialog';
 
-class Module {
-  title = 'Heroku Wakka';
-  say = new Say();
-  select = 'Dialog';
+// global veriables for the search
+const searchInput= document.getElementById('search-input') as HTMLInputElement;
+const searchButton = document.getElementById('search-button');
+const searchStatus = document.getElementById('search-status');
 
-  onload() {
-    const h1 = document.getElementsByTagName('h1')[0] as HTMLHeadingElement;
-    h1.innerText = this.title;
-  }
+// global veriables for our pokemon spotlight
+const spotImg = document.getElementById('spot-img') as HTMLImageElement;
+const spotName = document.getElementById('name') as HTMLDivElement;
+const spotType = document.getElementById('type') as HTMLDivElement;
+const spotWeight = document.getElementById('weight') as HTMLDivElement;
+const spotHeight = document.getElementById('height') as HTMLDivElement;
+const spotDiv = document.getElementById('poke-spotlight') as HTMLDivElement;
 
-  updateSelect(): void {
-    const select = document.getElementById('select') as HTMLSelectElement;
-    this.select = select.value;
-  }
 
-  updateDisplay(msg: string): void {
-    const display = document.getElementById('display') as HTMLDivElement;
-    display.innerText = msg;
-  }
+const body = document.querySelector('body');
+export const pokeContainer = document.createElement('div');
+pokeContainer.className = 'container';
+body?.appendChild(pokeContainer);
 
-  shout(): void {
-    const input = document.getElementById('msg') as HTMLInputElement;
-    switch (this.select) {
-      case 'Alert': this.say.alert(input.value); break;
-      case 'Console': this.say.console(input.value); break;
-      case 'UI': this.updateDisplay(input.value); break;
-      case 'Dialog': dialog.open(input.value); break;
-    }
-  }
-}
-export const module = new Module();
-export const dialog = new Dialog();
+import { characteristics } from './characteristics';
+import { pokeListComponent } from './pokeList';
+import { Dman } from './data';
 
-window.addEventListener('load', () => {
-  module.onload();
+
+
+// sends a request for searched pokemon. if return correctly puts the pokemon data in the spotlight
+const findPokemon = (pokemon: string) => {
+  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+    .then((res) => res.json())
+    .then((data) => {
+      if (data !== undefined) {
+        
+        spotName.innerHTML = `<h2>Name: ${data.name}`;
+        spotImg.src = data.sprites.front_default;
+        spotType.innerHTML = `Type: ${data.types[0].type.name}`;
+        spotWeight.innerHTML = `Weight: ${data.weight}`;
+        spotHeight.innerHTML = `Height: ${data.height}`;
+        spotDiv.className = 'pokemon-spotlight';
+
+      }
+    }).catch(error => {
+      console.log(error);
+      searchStatus!.innerText = `Didn't find a pokemon named ${pokemon}`;
+    });
+
+};
+
+//when the pokeball button is clicked it clears the search status if their is one and starts findPokemon()
+searchButton?.addEventListener('click', () => {
+  searchStatus!.innerHTML = '';
+  findPokemon(searchInput.value);
+  
+
 });
+
+//when the page loads the first 60 pokemons from the api are loaded by their data and th pokeList componnent
+const loadPokemons = () => {
+  Dman(5)
+  for (let i = 1; i < 61; i++){
+    fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+      .then(res => res.json())
+      .then(data => {
+        const poke :characteristics = new characteristics(data.name,
+          data.sprites.front_default,
+          data.weight,
+          data.height,
+          data.types[0].type.name);
+
+        new pokeListComponent(poke, pokeContainer).render();
+      }
+      );
+  }
+};
+
+
+//runs at page load the loadPokemons program
+window.addEventListener('load', loadPokemons);

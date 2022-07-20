@@ -1,56 +1,121 @@
-$font-famaly: Helvetica, sans-serif;
-$primary-color: white;
-$text-color: #79589f;
-
 body {
-  font-family: $font-famaly;
-  color: $text-color;
-  background: $primary-color;
-  >.alert {
-    >input {
-      outline: none;
+  background-color: rgb(195, 231, 255);
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(5, 200px);
+  row-gap: 10px;
+}
+
+.pokemon-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 5px 10px gray;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.766);
+  margin: 10px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+  img {
+    width: 150px;
+  }
+  h2 {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 30px;
+  }
+}
+.headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 400px;
+  }
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  margin-bottom: 10px;
+  input {
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px gray;
+    align-self: center;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    background-color: white;
+  }
+  .search-button {
+    width: 30px;
+    margin-left: 5px;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(1);
     }
   }
-  >.select {
-    margin-top: 10px;
-    >select {
-      outline: none;
-    }
-  }
-  #display {
-    height: 200px;
-    font-size: 60px;
+ 
+}
+
+.spotlight-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  .pokemon-spotlight {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  #dialog {
-    display: none;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,.3);
-    top: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    >.card {
-      width: 300px;
-      padding: 15px;
-      border-radius: 7px;
-      background: white;
-      color: #222;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      #message {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 10px;
-      }
-      button {
-        width: 100px;
-      }
+    background-color: rgba(255, 255, 255, 0.766);
+    width: 350px;
+    height: 450px;
+    border-radius: 20px;
+    outline: black solid 3px;
+
+    .specs {
+      font-size: 18px;
+      font-weight: 500;
+      font-family: "Chakra Petch", sans-serif;
+    }
+
+    img {
+      width: 200px;
     }
   }
+}
+
+.hide {
+  display: none;
+}
+
+.name {
+  font-family: "Chakra Petch", sans-serif;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Chakra Petch", sans-serif;
+}
+
+.search-status{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(242, 255, 64);
+  font-size: 20px;
+  text-shadow: 1px 1px 2px black;
 }
