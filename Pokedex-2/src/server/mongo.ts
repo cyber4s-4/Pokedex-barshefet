@@ -1,5 +1,6 @@
 import { MongoClient } from 'mongodb';
-import { pokeList } from '../client/data';
+import { pokeList } from './data';
+
 
 export const uri =
   'mongodb+srv://barshefet:ilovecode@cluster0.rxb57.mongodb.net/?retryWrites=true&w=majority';
