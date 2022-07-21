@@ -4,7 +4,7 @@ import cors from 'cors';
 import { json } from 'body-parser';
 import { connectToDatabase } from './mongo';
 import { addPokemons } from './mongo';
-// import { fetchData } from './data';
+import { fetchData } from './data';
 
 
 const app: Express = express();
@@ -17,12 +17,12 @@ app.use(express.static(root));
 connectToDatabase()
 
 const runOnce = () =>{
-  // fetchData(4)
+  fetchData(4)
 addPokemons()
 }
 
 
-console.log(runOnce())
+runOnce()
 
 app.get('*', (_req, res) => {
   res.sendFile(path.join(root, 'index.html'));

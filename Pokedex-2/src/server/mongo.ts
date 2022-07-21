@@ -18,6 +18,12 @@ export async function connectToDatabase() {
 
 export async function addPokemons() {
     pokeList.forEach(async pokemon => {
+      try{
         await client.db("Pokedex").collection("pokemons").insertOne(pokemon)
+      }
+      catch(err){
+        console.log(err)
+      }
     })
+    console.log('uploaded to mongdb')
 }
