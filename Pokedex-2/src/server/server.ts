@@ -3,8 +3,8 @@ import express, { Express} from 'express';
 import cors from 'cors';
 import { json } from 'body-parser';
 import { connectToDatabase } from './mongo';
-import { addPokemons } from './mongo';
-import { fetchData } from './data';
+// import { addPokemons } from './mongo';
+// import { fetchData, pokeList } from './data';
 
 
 const app: Express = express();
@@ -16,17 +16,25 @@ app.use(express.static(root));
 
 connectToDatabase()
 
-const runOnce = () =>{
-  fetchData(4)
-addPokemons()
-}
+// const runOnce = () =>{
+//   fetchData(1000)
+//   setTimeout(() => {
+//     addPokemons(pokeList)
+//   }, 80000); 
+  
+// }
+// runOnce()
+  
 
-
-runOnce()
 
 app.get('*', (_req, res) => {
   res.sendFile(path.join(root, 'index.html'));
 });
+
+app.get('/pokemon', (req, res) => {
+  console.log('dajhfajf')
+  res.send('test')
+})
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {

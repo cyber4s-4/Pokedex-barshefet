@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import { pokeList } from './data';
+// import { pokeList } from './data';
 
 
 export const uri =
@@ -16,14 +16,13 @@ export async function connectToDatabase() {
   }
 }
 
-export async function addPokemons() {
-    pokeList.forEach(async pokemon => {
+export async function addPokemons(pokemon: any) {
       try{
-        await client.db("Pokedex").collection("pokemons").insertOne(pokemon)
+        await client.db("Pokedex").collection("pokemons").insertMany(pokemon)
       }
       catch(err){
         console.log(err)
       }
-    })
+   
     console.log('uploaded to mongdb')
 }
