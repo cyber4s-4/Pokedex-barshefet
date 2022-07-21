@@ -12,7 +12,6 @@ const spotWeight = document.getElementById('weight') as HTMLDivElement;
 const spotHeight = document.getElementById('height') as HTMLDivElement;
 const spotDiv = document.getElementById('poke-spotlight') as HTMLDivElement;
 
-
 const body = document.querySelector('body');
 export const pokeContainer = document.createElement('div');
 pokeContainer.className = 'container';
@@ -22,15 +21,13 @@ import { characteristics } from './characteristics';
 import { pokeListComponent } from './pokeList';
 import { Dman } from './data';
 
-
-
 // sends a request for searched pokemon. if return correctly puts the pokemon data in the spotlight
 const findPokemon = (pokemon: string) => {
   fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
     .then((res) => res.json())
     .then((data) => {
       if (data !== undefined) {
-        
+
         spotName.innerHTML = `<h2>Name: ${data.name}`;
         spotImg.src = data.sprites.front_default;
         spotType.innerHTML = `Type: ${data.types[0].type.name}`;
@@ -46,17 +43,16 @@ const findPokemon = (pokemon: string) => {
 
 };
 
-//when the pokeball button is clicked it clears the search status if their is one and starts findPokemon()
+// when the pokeball button is clicked it clears the search status if their is one and starts findPokemon()
 searchButton?.addEventListener('click', () => {
   searchStatus!.innerHTML = '';
   findPokemon(searchInput.value);
-  
 
 });
 
-//when the page loads the first 60 pokemons from the api are loaded by their data and th pokeList componnent
+// when the page loads the first 60 pokemons from the api are loaded by their data and th pokeList componnent
 const loadPokemons = () => {
-  Dman(5)
+  Dman(5);
   for (let i = 1; i < 61; i++){
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then(res => res.json())
@@ -73,6 +69,5 @@ const loadPokemons = () => {
   }
 };
 
-
-//runs at page load the loadPokemons program
+// runs at page load the loadPokemons program
 window.addEventListener('load', loadPokemons);
