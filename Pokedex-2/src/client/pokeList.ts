@@ -6,7 +6,7 @@ export class pokeListComponent {
   data: characteristics;
   parent;
 
-  constructor(data: characteristics, parent: HTMLDivElement) {
+  constructor(data: characteristics) {
     this.data = data;
     this.parent = pokeContainer;
   }

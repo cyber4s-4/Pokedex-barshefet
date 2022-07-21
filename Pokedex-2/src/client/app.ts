@@ -19,7 +19,6 @@ body?.appendChild(pokeContainer);
 
 import { characteristics } from './characteristics';
 import { pokeListComponent } from './pokeList';
-import { Dman } from './data';
 
 // sends a request for searched pokemon. if return correctly puts the pokemon data in the spotlight
 const findPokemon = (pokemon: string) => {
@@ -52,7 +51,6 @@ searchButton?.addEventListener('click', () => {
 
 // when the page loads the first 60 pokemons from the api are loaded by their data and th pokeList componnent
 const loadPokemons = () => {
-  Dman(5);
   for (let i = 1; i < 61; i++){
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
       .then(res => res.json())
@@ -63,7 +61,7 @@ const loadPokemons = () => {
           data.height,
           data.types[0].type.name);
 
-        new pokeListComponent(poke, pokeContainer).render();
+        new pokeListComponent(poke).render();
       }
       );
   }
