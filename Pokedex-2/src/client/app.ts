@@ -22,14 +22,14 @@ import { pokeListComponent } from './pokeList';
 
 // sends a request for searched pokemon. if return correctly puts the pokemon data in the spotlight
 const findPokemon = (pokemon: string) => {
-  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+  fetch(`/pokemon/${pokemon}`)
     .then((res) => res.json())
     .then((data) => {
+      
       if (data !== undefined) {
-
         spotName.innerHTML = `<h2>Name: ${data.name}`;
-        spotImg.src = data.sprites.front_default;
-        spotType.innerHTML = `Type: ${data.types[0].type.name}`;
+        spotImg.src = data.front_sprite;
+        spotType.innerHTML = `Type: ${data.type}`;
         spotWeight.innerHTML = `Weight: ${data.weight}`;
         spotHeight.innerHTML = `Height: ${data.height}`;
         spotDiv.className = 'pokemon-spotlight';
@@ -51,20 +51,23 @@ searchButton?.addEventListener('click', () => {
 
 // when the page loads the first 60 pokemons from the api are loaded by their data and th pokeList componnent
 const loadPokemons = () => {
-  for (let i = 1; i < 61; i++){
-    fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+  
+    fetch(`/pokemons`)
       .then(res => res.json())
       .then(data => {
-        const poke :characteristics = new characteristics(data.name,
-          data.sprites.front_default,
-          data.weight,
-          data.height,
-          data.types[0].type.name);
-
-        new pokeListComponent(poke).render();
+        data.forEach(pokemon => {
+          const poke :characteristics = new characteristics(pokemon.name,
+            pokemon.front_sprite,
+            pokemon.weight,
+            pokemon.height,
+            pokemon.type);
+  
+          new pokeListComponent(poke).render();
+        });
+       
       }
       );
-  }
+  
 };
 
 // runs at page load the loadPokemons program

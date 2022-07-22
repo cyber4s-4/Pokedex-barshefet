@@ -1,15 +1,15 @@
 const axios = require('axios').default;
 
 export const pokeList : any[] = [];
-// // { name: "Bar" }, { hobby: "surfing" }
 
 
 
 export async function fetchData(howMany: number) {
-        for(let i = 1; i < howMany; i++){
+        for(let i = 900; i < howMany; i++){
 axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
   .then(function (response: any) {
     let poke = {
+      id : response.data.id ,
       name : response.data.name ,
       front_sprite : response.data.sprites.front_default ,
       type : response.data.types[0].type.name ,

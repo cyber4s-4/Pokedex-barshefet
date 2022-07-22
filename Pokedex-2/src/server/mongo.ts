@@ -18,11 +18,23 @@ export async function connectToDatabase() {
 
 export async function addPokemons(pokemon: any) {
       try{
-        await client.db("Pokedex").collection("pokemons").insertMany(pokemon)
+        await client.db("Pokedex").collection("Pokemons").insertMany(pokemon)
       }
       catch(err){
         console.log(err)
       }
    
     console.log('uploaded to mongdb')
+}
+
+export async function findPokemon(pokemon: any) {
+        let poke: any = await client.db("Pokedex").collection("pokemons").findOne(pokemon)
+        console.log('pokemon pulled from database')
+        return poke
+}
+
+export async function get50Pokemons(index: number) {
+  let limit = 60 * index
+  let poke = await client.db("Pokedex").collection("pokemons").find({}).limit(limit).skip(limit - 60).toArray()
+  return poke
 }
