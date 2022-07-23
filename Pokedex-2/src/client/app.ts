@@ -55,7 +55,7 @@ const loadPokemons = () => {
     fetch(`/pokemons`)
       .then(res => res.json())
       .then(data => {
-        data.forEach(pokemon => {
+        data.forEach((pokemon: { name: string; front_sprite: string; weight: number; height: number; type: string; }) => {
           const poke :characteristics = new characteristics(pokemon.name,
             pokemon.front_sprite,
             pokemon.weight,

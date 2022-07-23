@@ -5,7 +5,7 @@ import { json } from 'body-parser';
 import { connectToDatabase } from './mongo';
 import { findPokemon } from './mongo';
 import { get60Pokemons } from './mongo';
-import { fusePokemon } from './mongo';
+// import { fusePokemon } from './mongo';
 // import { addPokemons } from './mongo';
 // import { fetchData, pokeList } from './data';
 
@@ -28,7 +28,7 @@ connectToDatabase()
 // }
 // runOnce()
   
-fusePokemon()
+// fusePokemon()
 
 
 
