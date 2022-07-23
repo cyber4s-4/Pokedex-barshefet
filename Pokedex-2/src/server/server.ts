@@ -4,7 +4,8 @@ import cors from 'cors';
 import { json } from 'body-parser';
 import { connectToDatabase } from './mongo';
 import { findPokemon } from './mongo';
-import { get50Pokemons } from './mongo';
+import { get60Pokemons } from './mongo';
+import { fusePokemon } from './mongo';
 // import { addPokemons } from './mongo';
 // import { fetchData, pokeList } from './data';
 
@@ -27,7 +28,7 @@ connectToDatabase()
 // }
 // runOnce()
   
-
+fusePokemon()
 
 
 
@@ -36,7 +37,7 @@ app.get('/pokemon/:name', async (req, res) => {
 })
 
 app.get('/pokemons', async (req, res) => {
-  res.send(await get50Pokemons(1))
+  res.send(await get60Pokemons(1))
 })
 
 
