@@ -1,5 +1,4 @@
 import { MongoClient } from 'mongodb';
-// import { pokeList } from './data';
 
 
 export const uri =
@@ -33,7 +32,7 @@ export async function findPokemon(pokemon: any) {
         return poke
 }
 
-export async function get50Pokemons(index: number) {
+export async function get60Pokemons(index: number) {
   let limit = 60 * index
   let poke = await client.db("Pokedex").collection("pokemons").find({}).limit(limit).skip(limit - 60).toArray()
   return poke

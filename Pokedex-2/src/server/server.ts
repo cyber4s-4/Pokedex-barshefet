@@ -5,8 +5,8 @@ import { json } from 'body-parser';
 import { connectToDatabase } from './mongo';
 import { findPokemon } from './mongo';
 import { get50Pokemons } from './mongo';
-import { addPokemons } from './mongo';
-import { fetchData, pokeList } from './data';
+// import { addPokemons } from './mongo';
+// import { fetchData, pokeList } from './data';
 
 
 const app: Express = express();
@@ -18,14 +18,14 @@ app.use(express.static(root));
 
 connectToDatabase()
 
-const runOnce = () =>{
-  fetchData(1000)
-  setTimeout(() => {
-    addPokemons(pokeList)
-  }, 30000); 
+// const runOnce = () =>{
+//   fetchData(999)
+//   setTimeout(() => {
+//     addPokemons(pokeList)
+//   }, 30000); 
   
-}
-runOnce()
+// }
+// runOnce()
   
 
 
