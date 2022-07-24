@@ -33,8 +33,14 @@ export async function findPokemon(pokemon: any) {
 }
 
 export async function get60Pokemons(index: number) {
-  let limit = 60 * index
-  let poke = await client.db("Pokedex").collection("Pokemons").find({}).limit(limit).skip(limit - 60).toArray()
+  let poke: any[] = [];
+  let limit = 60 * index;
+  try {
+    poke = await client.db("Pokedex").collection("Pokemons").find({}).limit(limit).skip(limit - 60).toArray();
+  } catch (error) {
+    console.log(error);
+  }
+  
   return poke
 }
 

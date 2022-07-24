@@ -13,8 +13,9 @@ import { get60Pokemons } from './mongo';
 const app: Express = express();
 app.use(cors());
 app.use(json());
-const root: string = path.join(process.cwd(), 'dist');
 
+const root: string = path.join(process.cwd(), 'dist');
+console.log(root)
 app.use(express.static(root));
 
 connectToDatabase()
@@ -48,4 +49,4 @@ app.listen(port, () => {
 
 app.get('*', (_req, res) => {
   res.sendFile(path.join(root, 'index.html'));
-});
+}); 
