@@ -21,7 +21,7 @@ const pgClient = new Client({
 
   export async function uploadToPG(data : any) {
     try{
-      await pgClient
+      await pgClient.insert
     } catch (e) {
 
     }
