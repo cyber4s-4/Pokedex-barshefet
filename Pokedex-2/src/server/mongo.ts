@@ -73,3 +73,16 @@ export async function fusePokemon() {
 console.log('uploaded to mongdb')
 
 }
+
+
+export async function get10K(index: number) {
+  let poke: any[] = [];
+
+  try {
+    poke = await client.db("Pokedex").collection("Pokemons").find({}).limit(10000).skip(0).toArray();
+  } catch (error) {
+    console.log(error);
+  }
+  
+  return poke
+}

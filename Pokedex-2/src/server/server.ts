@@ -5,6 +5,8 @@ import { json } from 'body-parser';
 import { connectToDatabase } from './mongo';
 import { findPokemon } from './mongo';
 import { get60Pokemons } from './mongo';
+import { connectToPGDatabase } from './pg';
+
 // import { fusePokemon } from './mongo';
 // import { addPokemons } from './mongo';
 // import { fetchData, pokeList } from './data';
@@ -20,6 +22,12 @@ app.use(express.static(root));
 
 connectToDatabase()
 
+connectToPGDatabase()
+
+const runOncePG = () =>{
+  
+}
+
 // const runOnce = () =>{
 //   fetchData(999)
 //   setTimeout(() => {
@@ -31,7 +39,12 @@ connectToDatabase()
   
 // fusePokemon()
 
-
+app.get('/weather', (_request: any, response: any) => {
+  pgClient.query('SELECT * FROM weather', (err: Error, res: any) => {
+    if (err) throw err;
+    response.status(200).json(res.rows);
+  });
+});
 
 app.get('/pokemon/:name', async (req, res) => {
   res.send(await findPokemon(req.params))
